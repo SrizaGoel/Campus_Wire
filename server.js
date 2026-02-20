@@ -62,7 +62,8 @@ app.use((error, req, res, next) => {
   
   res.status(500).json({ error: 'Internal server error' });
 });
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' });
@@ -70,3 +71,6 @@ app.use('*', (req, res) => {
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('*', (req,res)=>{
+  res.sendFile(path.join(__dirname,'public','index.html'));
+});
