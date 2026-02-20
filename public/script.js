@@ -62,6 +62,10 @@ class CampusBuzz {
 //     }
 // });
 // }
+hideLoader(){
+    const loader=document.getElementById("appLoader");
+    if(loader) loader.style.display="none";
+}
 async init() {
 
     const path = window.location.pathname;
@@ -96,6 +100,8 @@ async init() {
     // ✅ HOME PAGE ONLY
     await this.loadTheme();
     await this.loadFeed();
+    this.hideLoader();
+    setTimeout(()=>this.hideLoader(),8000);
 }
 
 
