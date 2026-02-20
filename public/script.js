@@ -1,4 +1,4 @@
-const API = "http://localhost:4000";
+const API = "https://campus-wire.onrender.com";
 class CampusBuzz {
     constructor() {
         this.token = localStorage.getItem('token');
