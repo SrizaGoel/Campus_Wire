@@ -10,9 +10,9 @@ function auth(req, res, next) {
 
     try {
         req.user = jwt.verify(token, process.env.JWT_SECRET);
-        next();
+        next(); //this is a next function
     } catch {
-        return res.status(401).json({ error: "Invalid token" });
+        return res.status(401).json({ error: "Invalid token" });//invalid tokens will be returned via proper error handling 
     }
 }
 
